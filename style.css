@@ -1,0 +1,331 @@
+/* Paleta de Colores Oscura Original (Ajustada para mejor contraste y usabilidad) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* <--- IMPORTACIÓN DE ROBOTO */
+
+:root {
+    --bg-color: #1a1a2e; /* Fondo Oscuro Profundo (Casi Negro) */
+    --card-bg: #2d3142; /* Fondo de Tarjeta/Sección (Gris Oscuro) */
+    --text-color: #f0f0f0; /* Texto Blanco Hueso */
+    --primary-color: #48e2c0; /* Verde Azulado para Resaltar Positivo (PIN/Salario/Positivo) */
+    --pay-button-color: #e94560; /* Rojo/Rosa Intenso para Pagar (Negativo) */
+    --secondary-color: #3f51b5; /* Azul (Para botones neutros de Login/Acceder/Pagar a Jugador) */
+    --input-bg: #1a1a2e; /* Fondo del Input igual al fondo principal */
+}
+
+/* Base y Centrado */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    /* CAMBIO A ROBOTO */
+    font-family: 'Roboto', sans-serif; 
+    /* FIN CAMBIO */
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    display: flex; 
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 550px; 
+    width: 95%;
+    margin-top: 20px; 
+    padding: 10px;
+}
+
+/* TÍTULOS Y CABECERA */
+.header {
+    position: relative; 
+}
+
+#current-player-name {
+    text-align: center;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+/* Contenedor Flex para Saldo y PIN */
+.header-flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* 🟢 ESTILO DE TARJETAS DE SALDO Y PIN 🟢 */
+
+.balance-card, .pin-display-card {
+    padding: 20px 15px; /* Más padding vertical */
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    flex-grow: 1; 
+    
+    /* CENTRADO GENERAL */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    text-align: center;
+}
+
+/* Tarjeta de Saldo (Fondo Verde, Letras Blancas, Fuente Grande) */
+.balance-card {
+    background-color: var(--primary-color); /* Verde Azulado */
+    color: var(--text-color); /* Blanco */
+    font-size: 1.2em; /* Fuente base más grande */
+}
+.balance-card span {
+    font-size: 1.5em; /* Monto aún más grande */
+    display: block; /* Asegura que el monto esté en su propia línea o bloque para centrar mejor */
+    margin-top: 5px;
+}
+
+/* Tarjeta de PIN (Fondo Oscuro, Toda la Fuente Verde, Mismo Tamaño) */
+.pin-display-card {
+    background-color: var(--card-bg); /* Gris Oscuro */
+    color: var(--primary-color); /* Texto Verde Azulado */
+    font-size: 1.2em; /* Mismo tamaño base que la tarjeta de saldo */
+}
+.pin-display-card #current-pin {
+    color: var(--primary-color); /* Asegura que el número también sea verde */
+    font-size: 1.2em; /* Mismo tamaño que el texto "PIN:" */
+    font-weight: 600; 
+}
+/* ------------------------------------------------------------------- */
+
+
+/* Pantalla de Inicio de Sesión */
+.login-container {
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* Grid de botones de Login */
+.login-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+    max-width: 550px; 
+    margin: 20px auto;
+}
+
+/* BOTONES: Hacemos todos los botones uniformes */
+.login-button, .pay-button, .reset-button, .pay-select-button, .receive-button {
+    color: var(--text-color); 
+    padding: 12px;
+    font-size: 1em; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    height: 50px; /* Tamaño uniforme */
+    font-weight: bold; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box; 
+}
+
+/* Estilos de botones específicos */
+.login-button {
+    background-color: var(--secondary-color); 
+}
+.login-button:hover {
+    background-color: #303f9f;
+}
+
+/* Botones de Pago/Enviar (Rojo) */
+.pay-button {
+    background-color: var(--pay-button-color);
+    color: white; 
+    margin-top: 10px; 
+    width: 100%; 
+}
+
+.pay-button:hover {
+    background-color: #c9354e;
+}
+
+/* Área de PIN: INPUT Y BOTONES */
+#pin-entry-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+#pin-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #4a5568;
+    background-color: var(--input-bg); 
+    color: var(--text-color);
+    font-size: 1.2em;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.submit-pin-button {
+    margin-top: 0 !important;
+}
+
+
+/* ESTILO PARA EL BOTÓN DE REINICIAR (EN PANTALLA DE LOGIN) */
+.reset-button {
+    background-color: #555c65; 
+    color: white;
+    font-weight: normal; 
+    margin-top: 15px;
+}
+.reset-button:hover {
+    background-color: #707781;
+}
+
+/* BOTÓN "INICIO" (LOGOUT) */
+.small-reset-button {
+    background-color: #555c65; 
+    color: white;
+    font-weight: normal; 
+    
+    position: absolute; 
+    top: 0;
+    left: 0;
+    padding: 5px 10px; 
+    height: auto; 
+    font-size: 0.9em;
+    z-index: 10;
+    
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.small-reset-button:hover {
+     background-color: #707781;
+}
+
+
+/* Secciones de Acciones (PAGAR y RECIBIR) */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px; 
+}
+
+.action-card {
+    background-color: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.action-card h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: normal;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Campo de Monto */
+#dynamic-action-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#dynamic-amount-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px; 
+    border-radius: 5px;
+    border: 1px solid #4a5568;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Botones de Pago (2x2) */
+.pay-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+}
+
+.pay-select-button {
+    background-color: var(--secondary-color); 
+    color: white;
+}
+.pay-select-button:hover {
+    background-color: #303f9f;
+}
+
+/* Botones de Recibir (1x2) */
+.receive-buttons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+}
+
+/* Colores de Recibir */
+.bank-receive-button {
+    background-color: #9b59b6; 
+    color: white;
+}
+
+.salary-button {
+    background-color: var(--primary-color); 
+    color: var(--card-bg); 
+}
+
+
+/* Historial */
+.history-section h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.transaction-item {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    border-left: 5px solid transparent; 
+    transition: all 0.2s;
+    margin-bottom: 8px;
+    font-weight: normal; 
+}
+
+/* Resaltado de Transacción */
+.transaction-item.highlight-transaction {
+    font-weight: bold;
+    border-left-color: var(--primary-color);
+}
+
+/* Monto */
+.amount {
+    margin-left: 10px; 
+    font-weight: bold; 
+}
+
+.amount.positive {
+    color: var(--primary-color); 
+}
+
+.amount.negative {
+    color: var(--pay-button-color); 
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monopolio Bank</title>
+</head>
+<body>
+    
+    <div id="login-screen" class="container login-container">
+        <h2 style="color: var(--primary-color);">Monopolio Bank</h2>
+        <h3>Selecciona quién eres:</h3>
+        <div class="player-grid login-grid"> 
+            <button class="login-button" data-player-id="jugador1">Neyber</button>
+            <button class="login-button" data-player-id="oriana">Oriana</button>
+            <button class="login-button" data-player-id="alejandro">Alejandro</button>
+            <button class="login-button" data-player-id="albani">Albani</button>
+        </div>
+
+        <div id="pin-entry-area" class="action-card" style="display: none; margin-top: 20px;">
+            <h3 id="pin-title">Ingresar PIN para [Jugador]</h3>
+            <input type="password" id="pin-input" placeholder="PIN de 2 dígitos" maxlength="2" required>
+            <button id="submit-pin-button" class="pay-button submit-pin-button">Acceder</button>
+            <div id="pin-status-message" style="color: var(--pay-button-color); margin-top: 10px; font-size: 0.9em;"></div>
+            
+            <button id="back-to-player-select-button" class="reset-button">Volver</button>
+
+        </div>
+        
+        <div class="utility-actions" style="margin-top: 50px;">
+             <button id="reset-game-button" class="reset-button">Reiniciar Juego</button>
+        </div>
+    </div>
+
+    <div id="main-app" class="container" style="display: none;">
+        
+        <header class="header">
+            
+            <button id="logout-button" class="small-reset-button">INICIO</button>
+            
+            <div id="player-info">
+                <h2 id="current-player-name">Jugador: Cargando...</h2>
+                <div class="header-flex-container">
+                    <div class="balance-card">
+                        Saldo: <span id="current-balance">$0</span>
+                    </div>
+                    <div class="pin-display-card">
+                        PIN: <span id="current-pin">--</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="actions">
+                
+                <div class="action-card pay-container">
+                    <h3>PAGAR A:</h3>
+                    <div class="player-grid pay-buttons-grid">
+                        </div>
+                </div>
+
+                <div class="action-card receive-container">
+                    <h3>RECIBIR:</h3>
+                    <div class="receive-buttons-grid">
+                        <button id="salary-button" class="receive-button salary-button">Salario ($200)</button>
+                        <button id="bank-receive-button" class="receive-button bank-receive-button">Banco</button>
+                    </div>
+                </div>
+
+                <div id="dynamic-action-area" class="action-card" style="display: none;">
+                    <h3 id="action-title"></h3>
+                    <input type="number" id="dynamic-amount-input" placeholder="Monto" required min="1">
+                    <button id="execute-action-button" class="pay-button execute-action-button">Enviar</button>
+                    <div id="status-message" style="color: var(--pay-button-color); margin-top: 10px; font-size: 0.9em;"></div>
+                </div>
+
+            </div>
+        </header>
+
+        <main class="history-section">
+            <h2>Transacciones Globales</h2>
+            <div id="transactions-list" class="history-list">
+                </div>
+        </main>
+    </div>
+
+</body>
+</html>
+    <script src='https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js'></script>
+<script src='https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>
